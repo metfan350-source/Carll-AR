@@ -1,0 +1,1 @@
+Host all files together on GitHub Pages/Netlify/any site. Open index.html and tap 'View in AR'. For iPhone Quick Look, convert GLB to USDZ and add ios-src in the model-viewer tag.
