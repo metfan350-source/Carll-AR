@@ -1,11 +1,51 @@
-<!doctype html><html><head>
-<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>1019 Carll Dr — AR Floor Plan</title>
-<script type='module' src='https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js'></script>
-<style>html,body{height:100%;margin:0}header{padding:8px 12px;font:16px/1.2 system-ui;background:#111;color:#fff}.bar button{margin-right:8px}model-viewer{width:100%;height:calc(100% - 56px);background:#000}.hint{position:fixed;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);color:#fff;padding:10px 14px;font:14px system-ui;text-align:center}</style>
-</head><body>
-<header><div class='bar'><strong>1019 Carll Dr — AR Floor Plan (First Pass)</strong>&nbsp;|&nbsp;<button onclick="setModel('main')">Main Level</button><button onclick="setModel('basement')">Basement</button></div></header>
-<model-viewer id='mv' src='./1019_main_level.glb' ar ar-modes='webxr scene-viewer quick-look' camera-controls environment-image='neutral' exposure='1' shadow-intensity='0.6' style='background:#000;'><button slot='ar-button' style='position:absolute;left:50%;transform:translateX(-50%);bottom:80px;padding:10px 14px;border-radius:6px;border:none;'>View in AR</button></model-viewer>
-<div class='hint'>Tip: Place the plan on the floor; walk around it to explore.</div>
-<script>function setModel(which){const mv=document.getElementById('mv');mv.src=which==='main'?'./1019_main_level.glb':'./1019_basement.glb';}</script>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1019 Carll Dr — AR Floor Plan</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    html,body { height:100%; margin:0; }
+    header { padding:8px 12px; font:16px/1.2 system-ui; background:#111; color:#fff; }
+    .bar button { margin-right:8px; }
+    model-viewer { width:100%; height: calc(100% - 56px); background:#000; }
+    .hint { position:fixed; left:0; right:0; bottom:0; background:rgba(0,0,0,.55); color:#fff; padding:10px 14px; font:14px system-ui; text-align:center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <strong>1019 Carll Dr — AR Floor Plan</strong>
+      &nbsp;|&nbsp;
+      <button onclick="setModel('main')">Main Level</button>
+      <button onclick="setModel('basement')">Basement</button>
+    </div>
+  </header>
+
+  <model-viewer id="mv"
+    src="./1019_main_level.glb"
+    ios-src="./1019_main_level.usdz"
+    ar ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    environment-image="neutral" exposure="1" shadow-intensity="0.6"
+    style="background:#000;">
+    <button slot="ar-button" style="position:absolute;left:50%;transform:translateX(-50%);bottom:80px;padding:10px 14px;border-radius:6px;border:none;">View in AR</button>
+  </model-viewer>
+
+  <div class="hint">Tip: iPhone uses the .usdz files. Android uses the .glb files.</div>
+
+  <script>
+    function setModel(which) {
+      const mv = document.getElementById('mv');
+      if (which === 'main') {
+        mv.src = './1019_main_level.glb';
+        mv.iosSrc = './1019_main_level.usdz';
+      } else {
+        mv.src = './1019_basement.glb';
+        mv.iosSrc = './1019_basement.usdz';
+      }
+    }
+  </script>
+</body>
+</html>
